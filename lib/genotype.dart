@@ -42,7 +42,7 @@ class Genotype {
   static const _bloodCompatibility = <String, List<List>>{
     "A": [
       ["A", "AB"],
-      ["A", "O"]
+      ["A", "O"]  
     ],
     "B": [
       ["B", "AB"],

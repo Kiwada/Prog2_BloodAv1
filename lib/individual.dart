@@ -3,15 +3,15 @@ import 'genotype.dart';
 class Individual {
   final Genotype _genotype;
   final String? name;
-  static int _number = 0;
+  static int _count = 0;
 
   Individual(String genotype, [String? providedName])
       : _genotype = Genotype(genotype: genotype),
         name = providedName ?? generateName();
 
   static String generateName() {
-    Individual._number += 1;
-    return "Indiv${Individual._number}";
+    Individual._count += 1;
+    return "Indiv${Individual._count}";
   }
 
   get genotype => _genotype;
