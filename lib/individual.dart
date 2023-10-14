@@ -1,4 +1,4 @@
-import 'Genotype.dart';
+import 'genotype.dart';
 
 class Individual {
   final Genotype _genotype;

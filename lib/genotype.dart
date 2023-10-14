@@ -109,5 +109,5 @@ class Genotype {
   @override
   String toString() {
     return genotype;
-  }
-}
+  } 
+} 
