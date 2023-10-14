@@ -1,5 +1,5 @@
-import 'package:blood_prog2/individual.dart';
-import 'package:blood_prog2/utils.dart';
+import '../lib/individual.dart';
+import '../lib/utils.dart';
 void main() {
   List<String> genotypes = [
     'A',
