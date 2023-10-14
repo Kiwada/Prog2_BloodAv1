@@ -100,12 +100,12 @@ class Genotype {
   }
 
   bool compatible(Genotype genotype2) {
-  final bloodTypeCompatibility = _bloodCompatibility[bloodType];
-  if (bloodTypeCompatibility != null && bloodTypeCompatibility[0].contains(genotype2.bloodType)) {
-    return true;
+    final bloodTypeCompatibility = _bloodCompatibility[bloodType];
+    if (bloodTypeCompatibility != null && bloodTypeCompatibility[0].contains(genotype2.bloodType)) {
+      return true;
+    }
+    return false;
   }
-  return false;
-}
 
   @override
   String toString() {
