@@ -64,7 +64,7 @@ class Genotype {
   }
 
   get alleles {
-    return _listOfAlleles[genotype];
+    return _listOfAlleles[genotype]?.toSet().toList();
   }
 
   get bloodType {
