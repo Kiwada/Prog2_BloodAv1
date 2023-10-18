@@ -76,11 +76,11 @@ class Genotype {
   }
 
   get agglutinogens {
-    return _bloodTypeAndAgglutinogens[bloodType];
+    return _bloodTypeAndAgglutinogens[bloodType]?.toSet().toList();
   }
 
   get agglutinins {
-    return _associatedAgglutininGenotype[genotype];
+    return _associatedAgglutininGenotype[genotype]?.toSet().toList();
   }
 
   List offsprings(Genotype genotype2) {
