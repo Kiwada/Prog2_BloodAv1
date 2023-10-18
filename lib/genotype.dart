@@ -10,26 +10,24 @@ class Genotype {
     "ii",
   ];
   static const _listOfAlleles = {
-    "AA": ["A"],
+    "AA": ["A", "A"],
     "Ai": ["A", "i"],
-    "BB": ["B"],
+    "BB": ["B", "B"],
     "Bi": ["B", "i"],
     "AB": ["A", "B"],
-    "ii": ["i"],
+    "ii": ["i", "i"],
   };
-  static const _bloodTypeAndAlleles = <String, List<String>>{
+  static const _bloodTypeAndGenotype = <String, List<String>>{
     "A": ["AA", "Ai"],
     "B": ["BB", "Bi"],
     "AB": ["AB"],
     "O": ["ii"],
   };
-  static const _genotypeAndAgglutinogens = <String, List<String>>{
-    "AA": ["A", "A"],
-    "Ai": ["A"],
-    "BB": ["B", "B"],
-    "Bi": ["B"],
+  static const _bloodTypeAndAgglutinogens = <String, List<String>>{
+    "A": ["A"],
+    "B": ["B"],
     "AB": ["A", "B"],
-    "ii": [],
+    "O": [],
   };
   static const _associatedAgglutininGenotype = <String, List<String>>{
     "AA": ["B"],
@@ -42,7 +40,7 @@ class Genotype {
   static const _bloodCompatibility = <String, List<List>>{
     "A": [
       ["A", "AB"],
-      ["A", "O"]  
+      ["A", "O"]
     ],
     "B": [
       ["B", "AB"],
@@ -70,15 +68,15 @@ class Genotype {
   }
 
   get bloodType {
-    for (var key in _bloodTypeAndAlleles.keys) {
-      if (_bloodTypeAndAlleles[key]?.contains(genotype) == true) {
+    for (var key in _bloodTypeAndGenotype.keys) {
+      if (_bloodTypeAndGenotype[key]?.contains(genotype) == true) {
         return key;
       }
     }
   }
 
   get agglutinogens {
-    return _genotypeAndAgglutinogens[genotype];
+    return _bloodTypeAndAgglutinogens[bloodType];
   }
 
   get agglutinins {
@@ -101,7 +99,8 @@ class Genotype {
 
   bool compatible(Genotype genotype2) {
     final bloodTypeCompatibility = _bloodCompatibility[bloodType];
-    if (bloodTypeCompatibility != null && bloodTypeCompatibility[0].contains(genotype2.bloodType)) {
+    if (bloodTypeCompatibility != null &&
+        bloodTypeCompatibility[0].contains(genotype2.bloodType)) {
       return true;
     }
     return false;
@@ -110,5 +109,5 @@ class Genotype {
   @override
   String toString() {
     return genotype;
-  } 
-} 
+  }
+}
